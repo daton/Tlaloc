@@ -4,7 +4,10 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Looper
 import android.util.Log
+import android.view.Menu
+import android.view.MenuItem
 import android.widget.TextView
+import android.widget.Toast
 
 import kotlinx.coroutines.*
 import retrofit2.Retrofit
@@ -12,6 +15,29 @@ import retrofit2.converter.jackson.JacksonConverterFactory
 
 class MainActivity : AppCompatActivity() {
     var usuario=Mensaje()
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.menusito, menu)
+        //Aqui acciones
+        return super.onCreateOptionsMenu(menu)
+    }
+    override fun onOptionsItemSelected(item: MenuItem)=when (item.itemId) {
+
+        R.id.action_favorite -> {
+            // User chose the "Favorite" action, mark the current item
+            // as a favorite...
+
+            Toast.makeText(applicationContext,"Una opcion", Toast.LENGTH_LONG).show()
+            true
+        }
+
+        else -> {
+            // If we got here, the user's action was not recognized.
+            // Invoke the superclass to handle it.
+            super.onOptionsItemSelected(item)
+        }
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
