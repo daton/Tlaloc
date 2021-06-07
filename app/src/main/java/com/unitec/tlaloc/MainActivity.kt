@@ -71,6 +71,8 @@ class MainActivity : AppCompatActivity() {
 
 
             Log.i("TTT","Usuarios encontrados ${usuario?.cuerpo}")
+            //La siguiente corrutina tiene el scope para el thrad principal, es decir
+            //para el de thread principal de la UI
             launch(Dispatchers.Main) {
                 txt.text=usuario?.cuerpo
             }
